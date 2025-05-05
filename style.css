@@ -3,13 +3,13 @@ body{
 }
 .d-item{
     height: 550px;
-    
 }
 .d-img{
     height: 100%;
     object-fit: cover;
     filter: brightness(0.9);
 }
+
 
 .card {
     position: relative;
@@ -18,7 +18,7 @@ body{
     background-color: #f2f2f2;
     border-radius: 10px;
     margin-right: 45px;
-    display: block;
+    
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -131,6 +131,10 @@ body{
   z-index: 1000;
 }
 
+.hola{
+  
+  max-height: 100%;
+}
 
 
 @media (max-width: 720px) {
@@ -151,6 +155,7 @@ body{
   .text-justificado{
     text-align: justify;
   }
+  
   
 
 }
