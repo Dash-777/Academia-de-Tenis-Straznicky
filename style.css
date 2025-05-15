@@ -11,6 +11,7 @@ body{
 }
 
 
+
 .card {
     position: relative;
     width: 350px;
@@ -132,7 +133,6 @@ body{
 }
 
 .hola{
-  
   max-height: 100%;
 }
 

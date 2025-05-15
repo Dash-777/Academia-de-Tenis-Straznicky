@@ -1,0 +1,27 @@
+
+
+
+
+
+
+  .videoResponsive iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  @media (min-width: 992px) {
+    .videoResponsive iframe {
+      width: 1290px;
+      height: 415px;
+      aspect-ratio: unset;
+    }
+  }
+
+
+
+    @media (max-width: 768px) {
+
+    }
+
+    
