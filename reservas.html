@@ -1,24 +1,38 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Straznicky</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Reservas - Canchas de Tenis</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="css/botonNocturno.css">
-  <link rel="stylesheet" href="css/anuncios.css">
   <link rel="stylesheet" href="css/whatsapp.css">
-  <link rel="stylesheet" href="css/carrusel.css">
+  <style>
+    .celdas{
+        border:2px solid #7a7a7a
+    }
+    .cell {
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #dedede;
+      
+      border: 1px solid #868686;
+    }
+    .seleccionado {
+      background-color: #6f6 !important;
+    }
+  </style>
 </head>
 
-<body>
-
+<body class="bg-light">
   <!-- BARRA DE NAVEGACION-->
   <nav class="navbar navbar-expand-sm mx-5 my-3">
     <div class="container-fluid">
@@ -158,53 +172,55 @@
   </nav>
 
 
-  <!--ANUNCIO-->
-  <div id="popup-overlay">
-    <div id="popup">
-      <button id="close-btn">&times;</button>
-      <img src="img/Anuncio2.jpg" alt="Anuncio">
-    </div>
-  </div>
-
-  <!--VIDEO BIENVENIDA-->
-  <div class="container my-4 videoResponsive text-center">
-       <iframe 
-          src="https://www.youtube.com/embed/3U61X3FFBX0?autoplay=1" 
-          title="Video 1" 
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen 
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-  </div>
-  <h1 class="text-center fw-bold  animate__animated animate__fadeIn xd">Bienvenidos Academia de Tenis Straznicky
-  </h1>
-
-  <!-- informacion e imagen con uiverse-->
-  <div class="container py-3 align-items-center">
-    <div class="d-flex justify-content-center  flex-wrap ">
-
-      <div class="col-12 col-md-5 mb-3">
-
-        <p class="text-justificado">
-
-
-          En nuestra academia, la pasión por el tenis se vive en cada entrenamiento. Formamos jugadores desde los
-          primeros pasos hasta el alto rendimiento, combinando técnica, disciplina y diversión.
-
-          Ya seas principiante, intermedio o avanzado, aquí encontrarás el lugar ideal para desarrollar tu potencial,
-          con entrenadores calificados, un ambiente motivador y una comunidad que comparte tu amor por el deporte.
-        </p>
+  <div class="container mt-4">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="fecha" class="form-label">Fecha de reserva:</label>
+        <input type="date" class="form-control" id="fecha">
       </div>
-
-      <div class="card col-md-5 ms-5">
-        <img class="hola" src="img/logo.png" alt="">
-        <div class="card__content">
-          <p class="card__title">Bienvenidos</p>
-          <p class="card__description">🥎🎾</p>
+      <div class="col-md-6">
+        <label class="form-label">Turno:</label>
+        <div class="btn-group" role="group">
+          <button class="btn btn-outline-primary" onclick="cambiarTurno('mañana')">Mañana</button>
+          <button class="btn btn-outline-primary" onclick="cambiarTurno('tarde')">Tarde</button>
+          <button class="btn btn-outline-primary" onclick="cambiarTurno('noche')">Noche</button>
         </div>
       </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Selecciona las horas de tu reserva</h4>
+        <table class="table table-bordered celdas">
+          <thead>
+            <tr>
+              <th>Cancha</th>
+              <th>Superficie</th>
+              <th id="horario1"></th>
+              <th id="horario2"></th>
+              <th id="horario3"></th>
+              <th id="horario4"></th>
+              <th id="horario5"></th>
+            </tr>
+          </thead>
+          <tbody id="tablaReservas" class="celdas">
+            <!---->
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <h5>Datos de Reserva</h5>
+        <ul class="list-group" id="listaReserva"></ul>
+        <div class="mt-3">
+          <p><strong>Fecha:</strong> <span id="reservaFecha"></span></p>
+          <p><strong>Cancha:</strong> <span id="resumenCancha"></span></p>
+          <p><strong>Superficie:</strong> <span id="resumenSuperficie"></span></p>
+          <p><strong>Horario:</strong> <span id="resumenHorario"></span></p>
+          <p>Total: <strong>S/ <span id="totalPrecio">0</span></strong></p>
+          <button class="btn btn-danger" onclick="limpiarDatos()">Limpiar datos</button>
+          <button class="btn btn-primary" onclick="confirmarReserva()">Reservar</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -212,82 +228,8 @@
   <a href="https://wa.me/+51959783000" target="_blank" class="whatsapp-btn">
     <img src="img/WhatsApp.png" alt="WhatsApp" />
   </a>
-
-  <!--footer interactivo-->
-  <footer class="bd-footer py-3 mt-5 foot">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6">
-          <div class="d-inline-flex align-items-center mb-2 ">
-            <img class="me-3" src="https://i.gifer.com/XOsX.gif" alt="hola" width="40" height="50">
-            <span class="fs-5 titfd fw-bold">STRAZTEAM</span>
-          </div>
-          <div class="col-lg-7">
-            <p class="col-12 text-justificado descripcion"> ¡Descubre nuestros programas, conoce al equipo y da el primer paso hacia tu mejor versión
-            en la cancha!
-
-            Straznicky Tenis — Donde se forman campeones. </p>
-          </div>
-        </div>
-        <div class="col-12 col-lg-2">
-          <h5 class="titfd">Links</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="/"> <i
-                  class="bi bi-house"></i> Inicio</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-people-fill"></i> Nosotros</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-geo-fill"></i> Instalaciones</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-calendar-event"></i> Eventos</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-cart-check-fill"></i> Reservas</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-trophy-fill"></i> Torneos</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-lg-2 ">
-          <h5 class="titfd">Reclamos</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2 animate__animated animate__flash mi-caja"><a class="link" class="link" href="#"> <i
-                  class="bi bi-journal-bookmark-fill"></i> Aquí</a></li>
-          </ul>
-        </div>
-        <div class="col-12 col-lg-2 mb-3">
-          <h5 class="titfd">Contáctanos</h5>
-          <ul class="list-unstyled ">
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
-                  class="bi bi-geo-alt-fill"></i> Ubicación</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
-                  class="bi bi-facebook"></i> Facebook</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="https://www.instagram.com/tenis_straznicky/" rel="noopener"><i
-                  class="bi bi-instagram"></i> Instagram</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
-                  class="bi bi-tiktok"></i> TikTok</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
-                  class="bi bi-youtube"></i> YouTube</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
-                  class="bi bi-twitter-x"></i> Twiter</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
-                  class="bi bi-telephone-fill"></i> +51 987654321</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
-                  class="bi bi-info-circle-fill"></i> informes@Tenis.com.pe</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!--footer derechos-->
-  <div class=" text-white fta">
-    <p class="ftaa">&copy; 2025 Todos los derechos están reservados</p>
-  </div>
-
-  <script src="javascript/anuncios.js"></script>
-  <script src="javascript/darkmode.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
+  <script src="javascript/reserva.js"></script>
+  
 </body>
 
 </html>

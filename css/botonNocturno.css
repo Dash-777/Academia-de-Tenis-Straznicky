@@ -270,7 +270,7 @@
       transform: scale(1);
     }
   }
-  
+
   body.dark-mode {
     background-color: #021d3a;
     color: rgb(208, 208, 208);
@@ -278,20 +278,16 @@
   body.dark-mode .xd{
     color: #d0b821;
   }
-
   body.dark-mode .navbar {
     /* Fondo oscuro */
     color: #fff;
   }
-  
   body.dark-mode .nav-link {
     color: #d0b821;
   }
-  
   body.dark-mode .nav-link:hover {
     color: #ccc;
   }
-  
   body.dark-mode .dropdown-menu {
     background-color: #333;
   }
@@ -312,9 +308,10 @@
   }
 
   body.dark-mode .hora{
-
     background: #444;
     color: white;
-
   }
 
+h1.dark-mode {
+color: #d0b821!important;
+}
