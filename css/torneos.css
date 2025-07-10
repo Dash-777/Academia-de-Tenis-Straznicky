@@ -1,0 +1,84 @@
+        .tournament-bracket {
+            overflow-x: auto;
+            padding: 20px;
+        }
+        
+        .round {
+            min-width: 200px;
+            margin: 0 10px;
+        }
+        
+        .match {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .match:hover {
+            border-color: #28a745;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .player {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .player:last-child {
+            border-bottom: none;
+        }
+        
+        .player-name {
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .player.winner {
+            background-color: #d4edda;
+            border-radius: 4px;
+            padding: 8px;
+            font-weight: bold;
+            color: #155724;
+        }
+        
+        .score {
+            font-weight: bold;
+            color: #6c757d;
+        }
+        
+        .round-title {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .connection-line {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: #007bff;
+            transform: translateY(-50%);
+        }
+        
+        .bracket-container {
+            display: flex;
+            align-items: center;
+            min-height: 600px;
+        }
+        
+        .tbd {
+            color: #6c757d;
+            font-style: italic;
+        }

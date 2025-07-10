@@ -6,17 +6,15 @@ body.dark-mode .hh1 {
 color: #d0b821;
 }
 body.dark-mode .hh3 {
-color: #21d0ca;
+color: #dce619;
 }
 body.dark-mode .pp{
-  color: #d0b821;
-}
-body.dark-mode .pp{
-  color: #d0b821;
+  color: #fffff6;
 }
 
-body .item{
-  background-color: rgb(0, 0, 0);
+
+body.dark-mode .item{
+  background-color: #02152a;
 }
 
 /* ESTILO PARA NOSOTROS INF */
@@ -48,38 +46,3 @@ body .item{
 }
 
 
-
-
-    .prof-grid {
-      display: grid;
-      gap: 20px;
-      padding: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .prof-box {
-      text-align: center;
-      padding: 10px;
-    }
-
-    .prof-img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 10px;
-    }
-
-    .prof-name {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    @media (max-width: 500px) {
-      .prof-img {
-        width: 100px;
-        height: 100px;
-      }
-    }

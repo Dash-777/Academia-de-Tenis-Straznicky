@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Reservas - Canchas de Tenis</title>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Straznicky</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="img/logo.png">
@@ -13,26 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="css/botonNocturno.css">
   <link rel="stylesheet" href="css/whatsapp.css">
-  <style>
-    .celdas{
-        border:2px solid #7a7a7a
-    }
-    .cell {
-      width: 80px;
-      height: 40px;
-      text-align: center;
-      cursor: pointer;
-      background-color: #dedede;
-      
-      border: 1px solid #868686;
-    }
-    .seleccionado {
-      background-color: #6f6 !important;
-    }
-  </style>
+  <link rel="stylesheet" href="css/ubicacion.css">
 </head>
 
-<body class="bg-light">
+<body>
 
   <!-- BARRA DE NAVEGACION-->
   <nav class="navbar navbar-expand-sm mx-5 my-3">
@@ -169,70 +153,88 @@
   </nav>
 
 
-  <div class="container mt-4">
-    <div class="row mb-3">
-      <div class="col-md-6">
-        <label for="fecha" class="form-label">Fecha de reserva:</label>
-        <input type="date" class="form-control" id="fecha">
+
+  <!-- Hero Section -->
+  <section class="ubicacion-hero">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInDown">
+        <i class="bi bi-geo-alt-fill me-3"></i>
+        Nuestra Ubicación
+      </h1>
+      <p class="animate__animated animate__fadeInUp">Encuentra fácilmente nuestra academia de tenis</p>
+    </div>
+  </section>
+
+  <!-- Mapa Principal -->
+  <div class="container my-5">
+    <div class="mapa-container animate__animated animate__fadeIn">
+      <div class="mapa-header">
+        <h2><i class="bi bi-map me-2"></i>Straznicky Tennis Academy</h2>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Turno:</label>
-        <div class="btn-group" role="group">
-          <button class="btn btn-outline-primary" onclick="cambiarTurno('mañana')">Mañana</button>
-          <button class="btn btn-outline-primary" onclick="cambiarTurno('tarde')">Tarde</button>
-          <button class="btn btn-outline-primary" onclick="cambiarTurno('noche')">Noche</button>
+      <iframe 
+        class="mapa-frame"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.394664032805!2d-76.91159335270122!3d-12.085111591923303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c0d65a9f1c01%3A0xe9de8954f3ba1b5a!2sTenis%20Straznicky!5e0!3m2!1ses!2spe!4v1752110612198!5m2!1ses!2spe"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Información de Ubicación -->
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="info-box text-center animate__animated animate__fadeInLeft">
+          <i class="bi bi-geo-alt-fill"></i>
+          <h4>Dirección</h4>
+          <p>Jr. Acapulco 224 - Sol de la Molina Calle Viña del Mar 235 - Sol de la Molina Cercado de Lima Municipalidad Metropolitana de Lima LIMA, 12</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-box text-center animate__animated animate__fadeInUp">
+          <i class="bi bi-p-square-fill"></i>
+          <h4>Estacionamiento</h4>
+          <p>Estacionamiento gratuito disponible<br>
+          Espacios para 30 vehículos<br>
+          Seguridad las 24 horas</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-box text-center animate__animated animate__fadeInRight">
+          <i class="bi bi-bus-front-fill"></i>
+          <h4>Transporte</h4>
+          <p>Líneas de buses: 119<br>
+          Estación El Sol a 3 cuadras<br>
+          Fácil acceso desde cualquier punto</p>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8">
-        <h4>Selecciona las horas de tu reserva</h4>
-        <table class="table table-bordered celdas">
-          <thead>
-            <tr>
-              <th>Cancha</th>
-              <th>Superficie</th>
-              <th id="horario1"></th>
-              <th id="horario2"></th>
-              <th id="horario3"></th>
-              <th id="horario4"></th>
-              <th id="horario5"></th>
-            </tr>
-          </thead>
-          <tbody id="tablaReservas" class="celdas">
-            <!---->
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-4">
-        <h5>Datos de Reserva</h5>
-        <ul class="list-group" id="listaReserva"></ul>
-        <div class="mt-3">
-          <p><strong>Fecha:</strong> <span id="reservaFecha"></span></p>
-          <p><strong>Cancha:</strong> <span id="resumenCancha"></span></p>
-          <p><strong>Superficie:</strong> <span id="resumenSuperficie"></span></p>
-          <p><strong>Horario:</strong> <span id="resumenHorario"></span></p>
-          <p>Total: <strong>S/ <span id="totalPrecio">0</span></strong></p>
-          <button class="btn btn-danger" onclick="limpiarDatos()">Limpiar datos</button>
-          <button class="btn btn-primary" onclick="confirmarReserva()">Reservar</button>
+    <!-- Contacto Rápido -->
+    <div class="contacto-rapido animate__animated animate__fadeIn">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="contacto-item">
+          </div>
+          <div class="contacto-item">
+          </div>
         </div>
+      </div>
+      <div class="text-center mt-4">
+        <button class="btn btn-custom" onclick="abrirMapa()">
+          <i class="bi bi-map me-2"></i>
+          Abrir en Google Maps
+        </button>
       </div>
     </div>
   </div>
+
 
   <!-- Botón de WhatsApp -->
   <a href="https://wa.me/+51959783000" target="_blank" class="whatsapp-btn">
     <img src="img/WhatsApp.png" alt="WhatsApp" />
   </a>
-  <script src="javascript/reserva.js"></script>
-  
 
-
-
-
-
-    <!--footer interactivo-->
+  <!--footer interactivo-->
   <footer class="bd-footer py-3 mt-5 foot">
     <div class="container">
       <div class="row">
@@ -301,10 +303,18 @@
       <script>
         document.oncontextmenu=e=>false;document.onkeydown=e=>e.keyCode==123?false:null;
     </script>
+<!-- abre wl mapa -->
+  <script>
+    function abrirMapa() {
+      window.open('https://www.google.com/maps/place/Tenis+Straznicky/@-12.0851116,-76.9115934,17z/data=!4m6!3m5!1s0x9105c0d65a9f1c01:0xe9de8954f3ba1b5a!8m2!3d-12.0829347!4d-76.9098821!16s%2Fg%2F11f3c2vh48!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MDcwNy4wIKXMDSoASAFQAw%3D%3D', '_blank');
+    }
+
+  </script>
   <script src="javascript/anuncios.js"></script>
   <script src="javascript/darkmode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
 </body>
+
 </html>

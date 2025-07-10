@@ -300,6 +300,9 @@
     background-color: #444;
     color: #ddd;
   }
+
+
+
   body.dark-mode .navbar-brand {
     color: #d0b821 !important;
   }

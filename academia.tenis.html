@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="css/anuncios.css">
   <link rel="stylesheet" href="css/whatsapp.css">
   <link rel="stylesheet" href="css/carrusel.css">
+  <link rel="stylesheet" href="css/academiatenis.css">
+
 </head>
 
 <body>
@@ -23,7 +25,7 @@
   <nav class="navbar navbar-expand-sm mx-5 my-3">
     <div class="container-fluid">
       <img src="img/logo.png" alt="" width="70" height="70">
-      <a class="navbar-brand fw-bold ms-3 fs-4 animate__animated animate__rubberBand mi-caja"
+      <a class="navbar-brand fw-bold ms-3 mb-2 fs-4 animate__animated animate__rubberBand mi-caja"
         href="index.html">Straznicky</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +36,6 @@
           <li class="nav-item">
             <a class="nav-link animate__animated animate__fadeIn" href="nosotros.html">NOSOTROS</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link animate__animated animate__fadeIn" href="#">INSTALACIONES</a>
-          </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle animate__animated animate__fadeIn" href="#" role="button"
@@ -45,16 +44,15 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="eventosDeportivos.html">DEPORTIVOS</a></li>
-              <li><a class="dropdown-item" href="#">SOCIALES</a></li>
             </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link animate__animated animate__fadeIn" href="#">TORNEOS</a>
+            <a class="nav-link animate__animated animate__fadeIn" href="torneos.html">TORNEOS</a>
           </li>
           </li>
           <li class="nav-item">
-            <a class="nav-link animate__animated animate__fadeIn" href="#">UBICACION</a>
+            <a class="nav-link animate__animated animate__fadeIn" href="ubicacion.html">UBICACION</a>
           </li>
 
           <li class="nav-item dropdown">
@@ -63,7 +61,7 @@
               SERVICIOS
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">CAFETIN</a></li>
+              <li><a class="dropdown-item" href="cafetin.html">CAFETIN</a></li>
             </ul>
           </li>
 
@@ -73,15 +71,15 @@
               ACADEMIAS
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">TENIS</a></li>
-              <li><a class="dropdown-item" href="#">PADEL</a></li>
-              <li><a class="dropdown-item" href="#">PING PONG</a></li>
-              <li><a class="dropdown-item" href="#">GYM</a></li>
+              <li><a class="dropdown-item" href="academia.tenis.html">TENIS</a></li>
+              <li><a class="dropdown-item" href="academia.padel.html">PADEL</a></li>
+              <li><a class="dropdown-item" href="academia.pingpong.html">PING PONG</a></li>
+              <li><a class="dropdown-item" href="aca.gym.html">GYM</a></li>
             </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link animate__animated animate__fadeIn" href="#">RESERVAS</a>
+            <a class="nav-link animate__animated animate__fadeIn" href="reservas.html">RESERVAS</a>
           </li>
         </ul>
         <!--boton nocturno-->
@@ -157,17 +155,6 @@
     </div>
   </nav>
 
-  <!-- IMAGEN DE TITULO NEON -->
-<div class="d-flex justify-content-center">
-  <img src="img/academia de tenis.png" class="img-fluid" alt="Imagen centrada">
-</div>
- 
-
-<!-- Estilos personalizados -->
-<!-- 
-
--->
-
   <!--VIDEO BIENVENIDA-->
   <div class="container my-4 videoResponsive text-center">
        <iframe 
@@ -183,8 +170,65 @@
   </h1>
 
 
-  <!-- informacion e imagen con uiverse-->
-  
+<div class="container py-4">
+  <div class="row g-3">
+    <!-- Imagen 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <img src="img/Teniss1.jpg" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-src="img/Teniss1.jpg">
+    </div>
+    <!-- Imagen 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <img src="img/Teniss5.jpg" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-src="img/Teniss5.jpg">
+    </div>
+        <!-- Imagen 3 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <img src="img/Teniss3.jpg" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-src="img/Teniss3.jpg">
+    </div>
+        <div class="col-6 col-md-4 col-lg-3">
+      <img src="img/Teniss4.jpg" class="img-fluid gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-src="img/Teniss4.jpg">
+    </div>
+  </div>
+</div>
+<!-- Modal para mostrar imagen -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <img id="modalImage" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</div>
+
+
+<div class="container ">
+  <!-- GRID PROFESORES-->
+<div class="prof-grid">
+    <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesor 1" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+    <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesor 2" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+    <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesora 3" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+    <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesor 4" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+    <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesora 5" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+        <div class="prof-box">
+      <img src="img/yo.jpg" alt="Profesora 5" class="prof-img">
+      <p class="prof-name">PROFE 1</p>
+    </div>
+  </div>
+</div>
+
 
   <!-- Botón de WhatsApp -->
   <a href="https://wa.me/+51959783000?text=hola como estas" target="_blank" class="whatsapp-btn">
@@ -216,15 +260,13 @@
           <ul class="list-unstyled">
             <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="/"> <i
                   class="bi bi-house"></i> Inicio</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="nosotros.html"> <i
                   class="bi bi-people-fill"></i> Nosotros</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
-                  class="bi bi-geo-fill"></i> Instalaciones</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="eventosDeportivos.html"> <i
                   class="bi bi-calendar-event"></i> Eventos</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="reservas.html"> <i
                   class="bi bi-cart-check-fill"></i> Reservas</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="torneos.html"> <i
                   class="bi bi-trophy-fill"></i> Torneos</a></li>
           </ul>
         </div>
@@ -238,18 +280,16 @@
         <div class="col-12 col-lg-2 mb-3">
           <h5 class="titfd">Contáctanos</h5>
           <ul class="list-unstyled ">
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="ubicacion.html" rel="noopener"> <i
                   class="bi bi-geo-alt-fill"></i> Ubicación</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="https://www.facebook.com/academiadetenisstraznicky/photos_by?locale=es_LA" rel="noopener"><i
                   class="bi bi-facebook"></i> Facebook</a></li>
             <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="https://www.instagram.com/tenis_straznicky/" rel="noopener"><i
                   class="bi bi-instagram"></i> Instagram</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="https://www.tiktok.com/@tenis_straznicky" rel="noopener"> <i
                   class="bi bi-tiktok"></i> TikTok</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
+            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="https://www.youtube.com/@straznickytennis" rel="noopener"><i
                   class="bi bi-youtube"></i> YouTube</a></li>
-            <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
-                  class="bi bi-twitter-x"></i> Twiter</a></li>
             <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"> <i
                   class="bi bi-telephone-fill"></i> +51 987654321</a></li>
             <li class="mb-2 animate__animated animate__bounceIn mi-caja"><a class="link" href="#" rel="noopener"><i
@@ -265,11 +305,15 @@
     <p class="ftaa">&copy; 2025 Todos los derechos están reservados</p>
   </div>
 
+      <script>
+        document.oncontextmenu=e=>false;document.onkeydown=e=>e.keyCode==123?false:null;
+    </script>
   <script src="javascript/anuncios.js"></script>
   <script src="javascript/darkmode.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
+    <script src="javascript/jssgeneral.js"></script>
 </body>
 
 </html>
