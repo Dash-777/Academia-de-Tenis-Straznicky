@@ -75,74 +75,137 @@ body{
     line-height: 1.4;
   }
 
-  /*footer*/
-  .fta {
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 0.9rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #021d3a;
-    flex: 1;
-  }
-  .ftaa {
-    margin: 0;
-  }
-  
-  .text-justificado {
-    text-align: justify;
-    
-  }
+/*footer*/
+        .fta {
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #021d3a;
+            flex: 1;
+        }
+        
+        .ftaa {
+            margin: 0;
+        }
+        
+        .text-justificado {
+            text-align: justify;
+        }
 
-  .foot{
-    color: #e9e9e9;
-    background-color: #07294d;
-    align-items: end;
-  }
-  .titfd{
-    color: #c5a42b;
-  }
+        .foot{
+            color: #e9e9e9;
+            background-color: #07294d;
+            align-items: end;
+        }
+        
+        .titfd{
+            color: #c5a42b;
+        }
 
-  .link{
-    text-decoration: none;
-    color: white;
-  }
+        .link{
+            text-decoration: none;
+            color: white;
+        }
 
-  .link:hover{
-    color: #ffc800;
-  }
-  .mi-caja:hover {
-    /* cuando pasas el mouse */
-    animation-name: animate__bounce;
-    animation-duration: 1s;
-  }
-.nav-link{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+        .link:hover{
+            color: #ffc800;
+        }
+        
+        .mi-caja:hover {
+            /* cuando pasas el mouse */
+            animation-name: animate__bounce;
+            animation-duration: 1s;
+        }
+        
+        .nav-link{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
 
-.hola{
-  max-height: 100%;
-}
+        .hola{
+            max-height: 100%;
+        }
+        
+        /* Estilos para el botón colapsable en móviles */
+        .footer-toggle {
+            background: none;
+            border: none;
+            color: #c5a42b;
+            font-size: 1.25rem;
+            font-weight: bold;
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-toggle:hover {
+            color: #ffc800;
+        }
+        
+        .footer-toggle i {
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-toggle[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+        
+        .footer-section {
+            border-bottom: 1px solid #0a3b66;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section:last-child {
+            border-bottom: none;
+        }
+        
+        /* Mostrar botones solo en móviles */
+        @media (min-width: 992px) {
+            .footer-toggle {
+                display: none;
+            }
+            
+            .footer-collapse {
+                display: block !important;
+            }
+            
+            .footer-section {
+                border-bottom: none;
+            }
+        }
+        
+        /* Estilos adicionales para móviles */
+        @media (max-width: 991px) {
+            .footer-collapse {
+                border-top: 1px solid #0a3b66;
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+            }
+        }
 
+        @media (max-width: 720px) {
+            .col-12 {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-right: 20px;
+                padding-left: 20px;
+                align-items: center;
+            }
 
-@media (max-width: 720px) {
-  .col-12 {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding-right: 20px;
-    padding-left: 20px;
-    align-items: center;
-  }
+            .col-lg-6 {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
 
-  .col-lg-6 {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-
-  .text-justificado{
-    text-align: justify;
-  }
-  
-  
-
-}
+            .text-justificado{
+                text-align: justify;
+            }
+        }
+        
+        /* Animación suave para el colapso */
+        .collapsing {
+            transition: height 0.35s ease;
+        }

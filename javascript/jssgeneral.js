@@ -6,3 +6,5 @@
     const src = triggerImg.getAttribute('data-img-src');
     modalImage.src = src;
   });
+
+  
